@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    margin: 4em;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 4.1rem;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li a {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    position: relative;
+    
+}
+
+.active:before {
+    position: absolute;
+    content: "";
+    width: 45%;
+    height: 1px;
+    border-bottom: 2px solid black;
+    bottom: 0;
+}
+
+nav ul li a:before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 1px;
+    border-bottom: 2px solid rgb(152, 152, 152);
+    bottom: 0;
+    transition: width .3s;
+}
+
+nav ul li a:hover::before {
+    width: 45%;
+}
+
+main {
+    display: flex;
+    gap: 8em;
+    margin-top: 8em;
+    flex: 1 3;
+}
+
+.left-col {
+    width: 47%;
+}
+
+.right-col {
+    flex-grow: 1;
+}
+
+h1 {
+    margin: 0;
+    font-size: 5.2rem;
+    font-weight: normal;
+}
+
+.left-col p {
+    font-size: 1.8rem; 
+}
+
+.btns {
+    margin: 5em 0;
+}
+
+.btns, .secondary-btn {
+    display: flex;
+    gap: 2em;
+}
+
+.primary-btn {
+    background-color: #F2F0DF;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 1.9rem;
+    padding: 1em 2em;
+}
+
+.primary-btn:hover {
+    background-color: #e3e0c7;
+    transition: .3s;
+}
+
+.secondary-btn {
+    font-size: 1.8rem;
+    padding: 1em 0;
+    display: block;
+    transition: .3s;
+}
+
+.secondary-btn svg {
+    width: 20px;
+    transition: .3s;
+}
+
+.secondary-btn:hover svg {
+    transform: translateX(10px);
+}
+
+.black-border {
+    display: flex;
+    gap: 3em;
+    padding: 5em ;
+    border: 1px solid black;
+    border-radius: .8em;
+    position: relative;
+}
+
+.black-border::before {
+    content: "";
+    position: absolute;
+    background-image: url("../images/confetti.svg");
+    width: 100px;
+    height: 100px;
+    top: -25px;
+    left: -35px;
+    z-index: -1;
+}
+
+.black-border p:nth-child(1) {
+    font-size: 3.3rem;
+    margin: 0;
+    font-weight: 200;
+    line-height: 100%;
+}
+
+.black-border p:nth-child(2) {
+    font-size: 1.4rem;
+    margin: 0;   
+}
+
+.right-col {
+    display: grid;
+    gap: 2.9em;
+    grid-template-columns: repeat(2, auto);
+    grid-template-areas:
+        "left ."
+        "left .";
+}
+
+.card {
+    border-radius: 1.9em;
+    padding: 1.6em;
+    background-size: 150%;
+    display: flex;
+    align-items: end;
+    transition: .3s;
+}
+
+.one {
+    grid-area: left;
+    background-image: url('https://assets.codepen.io/2621168/clothing1.jpg');
+    position: relative;
+}
+
+.one:before {
+    position: absolute;
+    content: "";
+    background: url('https://assets.codepen.io/2621168/tag.svg') no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 20px;
+    left: -30px;
+    pointer-events: none;
+}
+
+.two {
+    background-image: url('https://assets.codepen.io/2621168/clothing2.jpg');
+    background-repeat: no-repeat;
+}
+.three {
+    background-image: url('https://assets.codepen.io/2621168/clothing3.jpg');
+    background-repeat: no-repeat;
+    background-position: 60%;
+}
+
+.card-details {
+    background: white;
+    border-radius: 1em;
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform .3s;
+}
+
+.card-details a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.card-details p {
+    font-size: 1.4rem;
+    margin: 0;
+}
+p.price {
+    font-size: 1.8rem;
+}
+
+
+.card:hover {
+    background-size: 160%;
+}
+
+.card:hover .card-details {
+    transform: translateY(-20px);
+}
+
+/* Intro Animation */
+
+.overlay {
+    position: absolute;
+    z-index: 999;
+    background: white;
+    width: 100%;
+    height: 100%;
+    animation: reveal 1s ease-in forwards;
+    transform-origin: bottom;
+}
+
+@keyframes reveal {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+}
+
+main {
+    animation: growIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    transform: scale(.4);
+}
+
+@keyframes growIn {
+    to {
+        transform: scale(1);
+    }
+}
